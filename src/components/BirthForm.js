@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 
 const BirthForm = ({ editAuthor, authors }) => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState(authors[0].name)
   const [born, setBorn] = useState('')
 
   const submit = async (e) => {
     e.preventDefault()
-    console.log(`Changed born year to ${born}`)
-    
+
     await editAuthor({
       variables: { name, born }
     })
 
-    setName('')
     setBorn('')
   }
 
